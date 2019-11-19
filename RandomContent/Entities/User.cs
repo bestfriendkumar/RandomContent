@@ -12,6 +12,6 @@
     public enum Role
     {
         User,
-        BetterUser
+        PrivilegedUser
     }
 }

@@ -58,6 +58,7 @@ namespace RandomContent
             });
 
             // configure DI for application services
+            services.AddScoped<IRegistrationService, RegistrationService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IContentService, ContentService>();
         }

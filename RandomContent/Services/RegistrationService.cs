@@ -1,15 +1,30 @@
-﻿using RandomContent.Entities;
+﻿using Microsoft.Extensions.Options;
+using RandomContent.Entities;
+using RandomContent.Helpers;
 
 namespace RandomContent.Services
 {
     public interface IRegistrationService
     {
-        User Register(string username, string password);
+        User Register(User user);
     }
 
     public class RegistrationService : IRegistrationService
     {
-        public User Register(string username, string password)
+
+        private readonly AppSettings _appSettings;
+
+        public RegistrationService(IOptions<AppSettings> appSettings)
+        {
+            _appSettings = appSettings.Value;
+        }
+
+        /// <summary>
+        /// Insert user into memory and return and return success/failure
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public User Register(User user)
         {
             throw new System.NotImplementedException();
         }
