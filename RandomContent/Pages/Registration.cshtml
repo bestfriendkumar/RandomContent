@@ -1,0 +1,37 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Rendering
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model RegistrationModel
+@{
+    ViewData["Title"] = "Registration";
+}
+<h2>@ViewData["Title"]</h2>
+
+@{
+    using (Html.BeginForm("Register", "Registration", FormMethod.Post))
+    {
+        <label>Username</label>
+        @Html.TextBoxFor(m => m.Username)
+
+        <br />
+
+        <label>Password</label>
+        @Html.TextBoxFor(m => m.Password)
+
+        <br />
+
+        <label>Role</label>
+        <label>
+            @Html.RadioButtonFor(m => m.Role, "0")
+            1
+        </label>
+        <label>
+            @Html.RadioButtonFor(m => m.Role, "1")
+            2
+        </label>
+
+        <br />
+
+        <input type="submit" value="Register" />
+    }
+}

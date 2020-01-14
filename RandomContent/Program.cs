@@ -20,7 +20,17 @@ namespace RandomContent
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:4000")
+                .UseUrls("https://localhost:44370")
                 .Build();
+
+        //public static IWebHost BuildWebHost(string[] args)
+        //{
+        //    var port = Environment.GetEnvironmentVariable("PORT");
+
+        //    return WebHost.CreateDefaultBuilder(args)
+        //        .UseStartup<Startup>()
+        //        .UseUrls("http://*:" + port)
+        //        .Build();
+        //}
     }
 }

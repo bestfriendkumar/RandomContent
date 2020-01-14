@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using RandomContent.Database.Context;
 using RandomContent.Entities;
 using RandomContent.Helpers;
 
@@ -19,11 +20,6 @@ namespace RandomContent.Services
 
     public class UserService : IUserService
     {
-        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
-        {
-            new User { Id = 1, Username = "test", Password = "test" }
-        };
 
         private readonly AppSettings _appSettings;
 
@@ -34,7 +30,12 @@ namespace RandomContent.Services
 
         public User Authenticate(string username, string password)
         {
-            var user = _users.SingleOrDefault(x => x.Username == username && x.Password == password);
+            //Retrieve user from db
+            User user;
+            using (var db = new AppDbContext())
+            {
+                user = db.Users.SingleOrDefault(x => x.Username == username && x.Password == password);
+            }
 
             // return null if user not found
             if (user == null)
@@ -42,12 +43,16 @@ namespace RandomContent.Services
 
             // authentication successful so generate jwt token
             var tokenHandler = new JwtSecurityTokenHandler();
+
+            //Retrieve signing key from appSettings
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
+                //Create claims
+                Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.Name, user.Id.ToString())
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.Role.ToString()), 
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -57,17 +62,24 @@ namespace RandomContent.Services
 
             // remove password before returning
             user.Password = null;
-
             return user;
         }
 
+        /// <summary>
+        /// Retrieves all users and removes the password
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<User> GetAll()
         {
-            // return users without passwords
-            return _users.Select(x => {
-                x.Password = null;
-                return x;
-            });
+            //Retrieve all users from db
+            using (var db = new AppDbContext())
+            {
+                var users = db.Users.ToList().Select(x => {
+                    x.Password = null;
+                    return x;
+                });
+                return users;
+            }
         }
     }
 }

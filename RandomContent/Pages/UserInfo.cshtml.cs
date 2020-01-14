@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace RandomContent.Pages
 {
-    public class AboutModel : PageModel
+    public class UserInfoModel : PageModel
     {
         public string Message { get; set; }
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "Your contact page.";
         }
     }
 }

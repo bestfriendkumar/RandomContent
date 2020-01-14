@@ -21,7 +21,7 @@ namespace RandomContent.Database.Configuration
             //set entity
             entityBuilder.Property(x => x.Username).IsRequired().HasColumnName("username");
             entityBuilder.Property(x => x.Password).IsRequired().HasColumnName("password");
-            entityBuilder.Property(x => x.Access).IsRequired().HasColumnName("access");
+            entityBuilder.Property(x => x.Role).IsRequired().HasColumnName("access");
 
             //set primary key
             entityBuilder.HasKey(x => x.Id);

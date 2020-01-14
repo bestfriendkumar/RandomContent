@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RandomContent.Entities;
 using RandomContent.Services;
 
 namespace RandomContent.Controllers
@@ -24,7 +25,12 @@ namespace RandomContent.Controllers
             return Ok(dog);
         }
 
+        /// <summary>
+        /// End point where only certain users can access
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles = "PrivilegedUser")]
         [Route("perfectdog")]
         public IActionResult GetPerfectDog()
         {

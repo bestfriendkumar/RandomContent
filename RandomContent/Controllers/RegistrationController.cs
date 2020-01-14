@@ -1,37 +1,51 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RandomContent.Entities;
+using RandomContent.Pages;
 using RandomContent.Services;
 
 namespace RandomContent.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("registration")]
+    [Route("Registration")]
     public class RegistrationController : ControllerBase
     {
-        private IRegistrationService _registrationService;
+        private readonly IRegistrationService _registrationService;
 
         public RegistrationController(IRegistrationService registrationService)
         {
             _registrationService = registrationService;
         }
 
+        /// <summary>
+        /// Creates a new user
+        /// Will return a bad request if the user could not be added to the db
+        /// or the user already exists
+        /// </summary>
+        /// <param name="userParam"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
         [HttpPost]
-        [Route("register")]
-        public IActionResult Register([FromBody]User userParam)
+        [Route("Register")]
+        public IActionResult Register(RegistrationModel userParam)
         {
-            var user = _registrationService.Register(userParam);
-            return Ok(user);
-        }
+            //Validations
+            if (!Enum.IsDefined(typeof(Role), userParam.Role))
+                return BadRequest("Must select valid Role for user");
+            if (string.IsNullOrWhiteSpace(userParam.Username))
+                return BadRequest("Must enter a username");
+            if (string.IsNullOrWhiteSpace(userParam.Password))
+                return BadRequest("Must enter a password");
 
-        //[HttpGet]
-        //[Route("perfectdog")]
-        //public IActionResult GetPerfectDog()
-        //{
-        //    var dog = _contentService.GetPerfectDog();
-        //    return Ok(dog);
-        //}
+            //Register user
+            var user = _registrationService.Register(userParam);
+            if (user != null) return Ok(user);
+            return BadRequest("Could not create user profile. They username may have been taken, or something else happened.");
+        }
 
     }
 }

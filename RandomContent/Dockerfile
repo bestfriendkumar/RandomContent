@@ -23,7 +23,21 @@
 ##ENTRYPOINT ["dotnet", "RandomContent.dll"]
 #CMD dotnet RandomContent.dll #needed for Heroku support
 
-FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1803 AS base
-WORKDIR /app
+#FROM microsoft/dotnet:2.1-aspnetcore-runtime
+#WORKDIR /app
+#COPY . .
+#CMD ASPNETCORE_URLS=http://*:$PORT dotnet RandomContent.dll
+
+FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS builder
+WORKDIR /sources
+
+COPY *.csproj .
+RUN dotnet restore
+
 COPY . .
-CMD ASPNETCORE_URLS=http://*:$PORT dotnet RandomContent.dll
+RUN dotnet publish --output /app/ --configuration Release
+
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1
+WORKDIR /app
+COPY --from=builder /app .
+CMD ["dotnet", "RandomContent.dll"]

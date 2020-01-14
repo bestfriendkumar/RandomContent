@@ -5,17 +5,15 @@ C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\bin\De
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\bin\Debug\netcoreapp2.1\RandomContent.pdb
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\bin\Debug\netcoreapp2.1\RandomContent.Views.dll
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\bin\Debug\netcoreapp2.1\RandomContent.Views.pdb
-C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.csprojAssemblyReference.cache
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.csproj.CoreCompileInputs.cache
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.RazorAssemblyInfo.cache
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.RazorAssemblyInfo.cs
+C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.AssemblyInfoInputs.cache
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.AssemblyInfo.cs
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.TagHelpers.input.cache
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.TagHelpers.output.cache
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.RazorCoreGenerate.cache
-C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
-C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.g.cshtml.cs
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
@@ -30,3 +28,6 @@ C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\De
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.dll
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.pdb
 C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.csproj.CopyComplete
+C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\RandomContent.csprojAssemblyReference.cache
+C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\Razor\Pages\Registration.g.cshtml.cs
+C:\Users\KMahinthakumar\Repos\Lunch and Learn\RandomContent\RandomContent\obj\Debug\netcoreapp2.1\Razor\Pages\UserInfo.g.cshtml.cs
